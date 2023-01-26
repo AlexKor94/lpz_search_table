@@ -20,43 +20,68 @@
           <aside class="menu">
             <div class="input-group mb-3">
               <span class="input-group-text" id="inputGroup-sizing-default"
-                >Default</span
+                >Пошук</span
               >
               <input
                 type="text"
-                class="form-control"
+                class="form-control search"
                 aria-label="Sizing example input"
                 aria-describedby="inputGroup-sizing-default"
               />
             </div>
+
+            <form>
+              <div class="mb-3">
+                <label for="inputName" class="form-label">Fild 1</label>
+                <input type="text" class="form-control" id="inputName" />
+              </div>
+              <div class="mb-3">
+                <label for="inputAdres" class="form-label">Fild 2</label>
+                <input type="text" class="form-control" id="inputAdres" />
+              </div>
+              <div class="form-floating">
+                <textarea
+                  class="form-control"
+                  placeholder="Leave a comment here"
+                  id="contactInfo"
+                  style="height: 100px"
+                ></textarea>
+                <label for="contactInfo">Comments</label>
+              </div>
+
+              <div class="mb-3">
+                <label for="category" class="form-label">Fild 4</label>
+                <input type="text" class="form-control" id="category" />
+              </div>
+              <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
           </aside>
         </div>
         <div class="col-xl-9">
           <section class="main">
             <div class="attention">some text attention!</div>
-
-            <table class="table table-bordered table-hover table__main">
-              ...
-              <thead>
-                <tr>
-                  <th scope="col">First</th>
-                  <th scope="col">Second</th>
-                  <th scope="col">Last</th>
-                  <th scope="col">Handle</th>
-                  <!-- <th scope="col">Info</th> -->
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td scope="col">One</td>
-                  <td scope="col">Two</td>
-                  <td scope="col">Three</td>
-                  <td scope="col">Four</td>
-                  <!-- <td scope="col">Four</td> -->
-                </tr>
-              </tbody>
-            </table>
-
+            <div class="table-wrapper-scroll-y my-custom-scrollbar">
+              <table class="table table-bordered table-hover results">
+                <thead>
+                  <tr>
+                    <th class="th-sm" onclick="sortTable(0)">First</th>
+                    <th class="th-sm" onclick="sortTable(1)">Second</th>
+                    <th class="th-sm" onclick="sortTable(2)">Last</th>
+                    <th class="th-sm" onclick="sortTable(3)">Handle</th>
+                    <!-- <th scope="col">Info</th> -->
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td scope="col">One</td>
+                    <td scope="col">Two</td>
+                    <td scope="col">Three</td>
+                    <td scope="col">Four</td>
+                    <!-- <td scope="col">Four</td> -->
+                  </tr>
+                </tbody>
+              </table>
+            </div>
             <div class="information"></div>
           </section>
         </div>
@@ -66,6 +91,12 @@
       src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
       integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
       crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.3/jquery.min.js"
+      integrity="sha512-STof4xm1wgkfm7heWqFJVn58Hm3EtS31XFaagaa8VMReCXAkQnJZ+jEy8PCC/iT18dFy95WcExNHFTqLyp72eQ=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
     ></script>
     <script src="js/script.js"></script>
   </body>
