@@ -10,35 +10,92 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+    <!-- <?!= include("page-css"); ?> -->
     <link rel="stylesheet" href="css/style.min.css" />
     <title>Document</title>
   </head>
   <body>
     <div class="container">
-      <div class="row">
-        <div class="col-xl-3">
-          <aside class="menu">
-            <div class="input-group mb-3">
-              <span class="input-group-text" id="inputGroup-sizing-default"
-                >Пошук</span
-              >
-              <input
-                type="text"
-                class="form-control search"
-                aria-label="Sizing example input"
-                aria-describedby="inputGroup-sizing-default"
-              />
-            </div>
-
-            <form>
+      <div class="col-xl-12">
+        <section class="main">
+          <div class="input-group mb-3">
+            <span class="input-group-text" id="inputGroup-sizing-default"
+              >Пошук</span
+            >
+            <input
+              type="text"
+              class="form-control search"
+              aria-label="Sizing example input"
+              aria-describedby="inputGroup-sizing-default"
+            />
+          </div>
+          <div class="table-wrapper-scroll-y my-custom-scrollbar">
+            <table class="table table-bordered table-hover results">
+              <thead>
+                <tr>
+                  <th class="th-sm" onclick="sortTable(0)">Філіал</th>
+                  <th class="th-sm" onclick="sortTable(1)">Місто</th>
+                  <th class="th-sm" onclick="sortTable(2)">Область</th>
+                  <th class="th-sm" onclick="sortTable(3)">Адреса</th>
+                  <th class="th-sm" onclick="sortTable(4)">Район</th>
+                  <th class="th-sm" onclick="sortTable(5)">Тип</th>
+                  <th class="th-sm" onclick="sortTable(6)">Категорія</th>
+                  <!-- <th scope="col">Info</th> -->
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+        <section class="info">
+          <div class="row">
+            <div class="col-xl-2">
               <div class="mb-3">
-                <label for="inputName" class="form-label">Fild 1</label>
+                <label for="inputNameLegal" class="form-label"
+                  >Медичний заклад</label
+                >
+                <input type="text" class="form-control" id="inputNameLegal" />
+              </div>
+              <div class="mb-3">
+                <label for="inputName" class="form-label">Філіал</label>
                 <input type="text" class="form-control" id="inputName" />
               </div>
               <div class="mb-3">
-                <label for="inputAdres" class="form-label">Fild 2</label>
-                <input type="text" class="form-control" id="inputAdres" />
+                <label for="inputCity" class="form-label">Місто</label>
+                <input type="text" class="form-control" id="inputCity" />
               </div>
+            </div>
+            <div class="col-xl-2">
+              <div class="mb-3">
+                <label for="inputRegion" class="form-label">Область</label>
+                <input type="text" class="form-control" id="inputRegion" />
+              </div>
+              <div class="mb-3">
+                <label for="inputArea" class="form-label">Район</label>
+                <input type="text" class="form-control" id="inputArea" />
+              </div>
+              <div class="mb-3">
+                <label for="inputType" class="form-label">Тип</label>
+                <input type="text" class="form-control" id="inputType" />
+              </div>
+            </div>
+
+            <div class="col-xl-2">
+              <div class="mb-3">
+                <label for="inputAddress" class="form-label">Адреса</label>
+                <input type="text" class="form-control" id="inputAddress" />
+              </div>
+              <div class="mb-3">
+                <label for="inputCost" class="form-label">Вартість</label>
+                <input type="text" class="form-control" id="inputCost" />
+              </div>
+              <div class="mb-3">
+                <label for="inputCategory" class="form-label">Категорія</label>
+                <input type="text" class="form-control" id="inputCategory" />
+              </div>
+            </div>
+
+            <div class="col-xl-6">
               <div class="form-floating">
                 <textarea
                   class="form-control"
@@ -46,45 +103,25 @@
                   id="contactInfo"
                   style="height: 100px"
                 ></textarea>
-                <label for="contactInfo">Comments</label>
+                <label for="contactInfo">КонтактнаІнформація</label>
               </div>
-
-              <div class="mb-3">
-                <label for="category" class="form-label">Fild 4</label>
-                <input type="text" class="form-control" id="category" />
+              <div class="form-floating">
+                <textarea
+                  class="form-control"
+                  placeholder="Leave a comment here"
+                  id="moreInfo"
+                  style="height: 100px"
+                ></textarea>
+                <label for="moreInfo">ДодатковаІнформація</label>
               </div>
-              <button type="submit" class="btn btn-primary">Submit</button>
-            </form>
-          </aside>
-        </div>
-        <div class="col-xl-9">
-          <section class="main">
-            <div class="attention">some text attention!</div>
-            <div class="table-wrapper-scroll-y my-custom-scrollbar">
-              <table class="table table-bordered table-hover results">
-                <thead>
-                  <tr>
-                    <th class="th-sm" onclick="sortTable(0)">First</th>
-                    <th class="th-sm" onclick="sortTable(1)">Second</th>
-                    <th class="th-sm" onclick="sortTable(2)">Last</th>
-                    <th class="th-sm" onclick="sortTable(3)">Handle</th>
-                    <!-- <th scope="col">Info</th> -->
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <td scope="col">One</td>
-                    <td scope="col">Two</td>
-                    <td scope="col">Three</td>
-                    <td scope="col">Four</td>
-                    <!-- <td scope="col">Four</td> -->
-                  </tr>
-                </tbody>
-              </table>
+              <button class="btn btn-primary save-btn">Зберегти</button>
+              <button class="btn btn-success add-btn">
+                Додати нову картку
+              </button>
+              <button class="btn btn-danger delete-btn">Видалити картку</button>
             </div>
-            <div class="information"></div>
-          </section>
-        </div>
+          </div>
+        </section>
       </div>
     </div>
     <script
@@ -98,6 +135,7 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     ></script>
+    <!-- <?!= include("page-js"); ?>  -->
     <script src="js/script.js"></script>
   </body>
 </html>

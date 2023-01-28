@@ -1,57 +1,106 @@
-// const { render } = require("sass");
-
+let data;
 document.addEventListener('DOMContentLoaded', () => {
-  const table = document.querySelector('table'),
-    tbody = table.querySelector('tbody');
-  const data = [
-    ["Адонис", "Раисы Окипной", "Клиника", "категория-1"],
-    ["Добробут", "Бажана", "Клиника", "категория-2"],
-    ["Синево", "Окипной", "Лаборатория", "Без категории"],
-    ["Синево", "Окипной", "Лаборатория", "Без категории"],
-    ["Синево", "Окипной", "Лаборатория", "Без категории"],
-    ["Синево", "Окипной", "Лаборатория", "Без категории"],
-    ["Синево", "Окипной", "Лаборатория", "Без категории"],
-    ["Синево", "Окипной", "Лаборатория", "Без категории"],
-    ["Синево", "Окипной", "Лаборатория", "Без категории"],
-    ["Синево", "Окипной", "Лаборатория", "Без категории"],
-    ["Синево", "Окипной", "Лаборатория", "Без категории"],
-    ["Синево", "Окипной", "Лаборатория", "Без категории"],
-    ["Синево", "Окипной", "Лаборатория", "Без категории"],
-    ["Синево", "Акипной", "Лаборатория", "Без категории"],
-    ["Синево", "Окипной", "Лаборатория", "Без категории"],
-    ["Дила", "Окипной", "Лаборатория", "Без категории"],
-    ["Синево", "Окипной", "Лаборатория", "Без категории"],
-    ["Синево", "Окипной", "Лаборатория", "Без категории"],
-    ["Синево", "Окипной", "Лаборатория", "Без категории"],
-    ["Синево", "Окипной", "Лаборатория", "Без категории"],
-    ["Синево", "Окипной", "Лаборатория", "Без категории"]
+
+  const
+    legalNameFild = document.querySelector('#inputNameLegal'),
+    nameFild = document.querySelector('#inputName'),
+    cityFild = document.querySelector('#inputCity'),
+    regionFild = document.querySelector('#inputRegion'),
+    adressFild = document.querySelector('#inputAddress'),
+    areaFild = document.querySelector('#inputArea'),
+    typeFild = document.querySelector('#inputType'),
+    catFild = document.querySelector('#inputCategory'),
+    costFild = document.querySelector('#inputCost'),
+    contactInfoFild = document.querySelector('#contactInfo'),
+    addInfoFild = document.querySelector('#moreInfo');
+
+  // get data from table  
+  // google.script.run.withSuccessHandler(setData).getAllData();
+
+  data = [
+    ["Адонис", "Раисы Окипной", "Клиника", "категория-1", "abc", "adkfalkdf", "wirwi", "rutuiorewuiotw", "kajdfklajdklfj", "adjfakdjf", "ajdfkadjfjda"],
+    ["Добробут", "Бажана", "Клиника", "категория-2", "abc", "adkfalkdf", "wirwi", "rutuiorewuiotw", "kajdfklajdklfj", "adjfakdjf", "ajdfkadjfjda"],
+    ["Синево", "Окипной", "Лаборатория", "Без категории", "abc", "adkfalkdf", "wirwi", "rutuiorewuiotw", "kajdfklajdklfj", "adjfakdjf", "ajdfkadjfjda"],
+    ["Синево", "Окипной", "Лаборатория", "Без категории", "abc", "adkfalkdf", "wirwi", "rutuiorewuiotw", "kajdfklajdklfj", "adjfakdjf", "ajdfkadjfjda"],
+    ["Синево", "Окипной", "Лаборатория", "Без категории", "abc", "adkfalkdf", "wirwi", "rutuiorewuiotw", "kajdfklajdklfj", "adjfakdjf", "ajdfkadjfjda"],
+    ["Синево", "Окипной", "Лаборатория", "Без категории", "abc", "adkfalkdf", "wirwi", "rutuiorewuiotw", "kajdfklajdklfj", "adjfakdjf", "ajdfkadjfjda"],
+    ["Синево", "Окипной", "Лаборатория", "Без категории", "abc", "adkfalkdf", "wirwi", "rutuiorewuiotw", "kajdfklajdklfj", "adjfakdjf", "ajdfkadjfjda"],
+    ["Синево", "Окипной", "Лаборатория", "Без категории", "abc", "adkfalkdf", "wirwi", "rutuiorewuiotw", "kajdfklajdklfj", "adjfakdjf", "ajdfkadjfjda"],
+    ["Синево", "Окипной", "Лаборатория", "Без категории", "abc", "adkfalkdf", "wirwi", "rutuiorewuiotw", "kajdfklajdklfj", "adjfakdjf", "ajdfkadjfjda"],
+    ["Синево", "Окипной", "Лаборатория", "Без категории", "abc", "adkfalkdf", "wirwi", "rutuiorewuiotw", "kajdfklajdklfj", "adjfakdjf", "ajdfkadjfjda"],
+    ["Синево", "Окипной", "Лаборатория", "Без категории", "abc", "adkfalkdf", "wirwi", "rutuiorewuiotw", "kajdfklajdklfj", "adjfakdjf", "ajdfkadjfjda"],
+    ["Синево", "Окипной", "Лаборатория", "Без категории", "abc", "adkfalkdf", "wirwi", "rutuiorewuiotw", "kajdfklajdklfj", "adjfakdjf", "ajdfkadjfjda"],
+    ["Синево", "Окипной", "Лаборатория", "Без категории", "abc", "adkfalkdf", "wirwi", "rutuiorewuiotw", "kajdfklajdklfj", "adjfakdjf", "ajdfkadjfjda"],
+    ["Синево", "Акипной", "Лаборатория", "Без категории", "abc", "adkfalkdf", "wirwi", "rutuiorewuiotw", "kajdfklajdklfj", "adjfakdjf", "ajdfkadjfjda"],
+    ["Синево", "Окипной", "Лаборатория", "Без категории", "abc", "adkfalkdf", "wirwi", "rutuiorewuiotw", "kajdfklajdklfj", "adjfakdjf", "ajdfkadjfjda"],
+    ["Дила", "Окипной", "Лаборатория", "Без категории", "abc", "adkfalkdf", "wirwi", "rutuiorewuiotw", "kajdfklajdklfj", "adjfakdjf", "ajdfkadjfjda"],
+    ["Синево", "Окипной", "Лаборатория", "Без категории", "abc", "adkfalkdf", "wirwi", "rutuiorewuiotw", "kajdfklajdklfj", "adjfakdjf", "ajdfkadjfjda"],
+    ["Синево", "Окипной", "Лаборатория", "Без категории", "abc", "adkfalkdf", "wirwi", "rutuiorewuiotw", "kajdfklajdklfj", "adjfakdjf", "ajdfkadjfjda"],
+    ["Синево", "Окипной", "Лаборатория", "Без категории", "abc", "adkfalkdf", "wirwi", "rutuiorewuiotw", "kajdfklajdklfj", "adjfakdjf", "ajdfkadjfjda"],
+    ["Синево", "Окипной", "Лаборатория", "Без категории", "abc", "adkfalkdf", "wirwi", "rutuiorewuiotw", "kajdfklajdklfj", "adjfakdjf", "ajdfkadjfjda"],
+    ["Синево", "Окипной", "Лаборатория", "Без категории", "abc", "adkfalkdf", "wirwi", "rutuiorewuiotw", "kajdfklajdklfj", "adjfakdjf", "ajdfkadjfjda"]
   ];
 
-  class createRows {
-    constructor(name, adr, type, category, index) {
-      this.name = name;
-      this.adr = adr;
-      this.type = type;
-      this.category = category;
-      this.index = index;
+  setData(data);
+
+  function setData(arr) {
+    data = arr;
+
+    const table = document.querySelector('table'),
+      tbody = table.querySelector('tbody');
+
+    class createRows {
+      constructor(name, city, region, adr, area, type, category, index) {
+        this.name = name;
+        this.city = city;
+        this.region = region;
+        this.adr = adr;
+        this.area = area;
+        this.type = type;
+        this.category = category;
+        this.index = index;
+      }
+
+      render() {
+        const row = document.createElement('tr');
+        row.setAttribute('data-index', this.index);
+        row.innerHTML = `
+  <td scope="col">${this.name}</td>
+  <td scope="col">${this.city}</td>
+  <td scope="col">${this.region}</td>
+  <td scope="col">${this.adr}</td>
+  <td scope="col">${this.area}</td>
+  <td scope="col">${this.type}</td>
+  <td scope="col">${this.category}</td>`;
+        tbody.append(row);
+      }
     }
 
-    render() {
-      const row = document.createElement('tr');
-      row.setAttribute('data-index', this.index);
-      row.innerHTML = `
-    <td scope="col">${this.name}</td>
-    <td scope="col">${this.adr}</td>
-    <td scope="col">${this.type}</td>
-    <td scope="col">${this.category}</td>`;
-      tbody.append(row);
-    }
+    data.forEach((element, i) => {
+      new createRows(element[1], element[2], element[3], element[4], element[5], element[6], element[7], i).render();
+    });
+
+    // click on the row
+    $('.results tr').click(function (e) {
+      let index = $(e.target.parentNode).attr('data-index');
+
+      legalNameFild.value = data[index][0];
+      nameFild.value = data[index][1];
+      cityFild.value = data[index][2];
+      regionFild.value = data[index][3];
+      adressFild.value = data[index][4];
+      areaFild.value = data[index][5];
+      typeFild.value = data[index][6];
+      catFild.value = data[index][7];
+      costFild.value = data[index][8];
+      contactInfoFild.value = data[index][9];
+      addInfoFild.value = data[index][10];
+
+      // console.log(index);
+      // console.log(data[index][0]);
+
+    });
   }
-
-  data.forEach((element, i) => {
-    new createRows(element[0], element[1], element[2], element[3], i).render();
-  });
-
 
   $(".search").keyup(function () {
     var searchTerm = $(".search").val();
@@ -79,14 +128,6 @@ document.addEventListener('DOMContentLoaded', () => {
     else { $('.no-result').hide(); }
   });
 
-  // click on the row
-
-  $('.results tr').click(function (e) {
-    let index = $(e.target.parentNode).attr('data-index');
-    console.log(index);
-    console.log(data[index]);
-
-  });
 
 });
 
@@ -102,6 +143,12 @@ function sortTable(n) {
     // Start by saying: no switching is done:
     switching = false;
     rows = table.rows;
+
+    if (rows.length > 100) {
+      console.log('too many rows');
+      return 'too many rows';
+    }
+    console.log('sorted');
     /* Loop through all table rows (except the
     first, which contains table headers): */
     for (i = 1; i < (rows.length - 1); i++) {
@@ -136,7 +183,7 @@ function sortTable(n) {
       switchcount++;
     } else {
       /* If no switching has been done AND the direction is "asc",
-      set the direction to "desc" and run the while loop again. */
+  set the direction to "desc" and run the while loop again. */
       if (switchcount == 0 && dir == "asc") {
         dir = "desc";
         switching = true;
@@ -144,3 +191,6 @@ function sortTable(n) {
     }
   }
 }
+
+
+
