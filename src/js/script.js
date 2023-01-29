@@ -27,8 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
     backSearchBtn = document.querySelector('.back-to-search-btn');
 
   // get data from table  
-  google.script.run.withSuccessHandler(setData).getAllData("ВІННИЦЯ");
-  google.script.run.withSuccessHandler(setCities).getCityes();
+  // google.script.run.withSuccessHandler(setData).getAllData("ВІННИЦЯ");
+  // google.script.run.withSuccessHandler(setCities).getCityes();
 
   cityListInput.value = "ВІННИЦЯ";
 
@@ -146,23 +146,23 @@ document.addEventListener('DOMContentLoaded', () => {
     obj.contactInfo = contactInfoFild.value;
     obj.moreInfo = addInfoFild.value;
 
-    google.script.run.withSuccessHandler(showModal).updateData(id, obj);
+    // google.script.run.withSuccessHandler(showModal).updateData(id, obj);
   });
 
   addBtn.addEventListener("click", () => {
     const newClinic = [legalNameFild.value, nameFild.value, cityFild.value, regionFild.value, adressFild.value, areaFild.value, typeFild.value, catFild.value, costFild.value, contactInfoFild.value, addInfoFild.value];
-    google.script.run.withSuccessHandler(showModal).addNewRod(newClinic);
+    // google.script.run.withSuccessHandler(showModal).addNewRod(newClinic);
   });
 
   deleteBtn.addEventListener("click", () => {
-    google.script.run.withSuccessHandler(showModal).deleteRow(id);
+    // google.script.run.withSuccessHandler(showModal).deleteRow(id);
   });
 
 
   function showModal(msg) {
     alert(msg);
     clearFilds();
-    google.script.run.withSuccessHandler(setData).getAllData(cityListInput.value);
+    // google.script.run.withSuccessHandler(setData).getAllData(cityListInput.value);
   }
 
   labelSearch.addEventListener("click", () => {
@@ -176,7 +176,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
 
   backSearchBtn.addEventListener("click", () => {
-    console.log('clik');
     document.querySelector('.info').classList.remove('active');
     document.querySelector('.info').classList.add('hide');
     document.querySelector('.main').classList.toggle('hideMain');
@@ -277,8 +276,7 @@ function changeListOptions() {
   $('.table').append(tbody);
 
   clearFilds();
-
-  google.script.run.withSuccessHandler(setData).getAllData(cityListInput.value);
+  // google.script.run.withSuccessHandler(setData).getAllData(cityListInput.value);
 }
 
 function clearFilds() {
