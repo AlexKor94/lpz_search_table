@@ -2,7 +2,7 @@
 let data, id;
 let legalNameFild, nameFild, cityFild, regionFild, adressFild,
   areaFild, typeFild, catFild, costFild, contactInfoFild, addInfoFild,
-  saveBtn, addBtn, deleteBtn, searchInput, labelSearch, citylist, cityListInput;
+  saveBtn, addBtn, deleteBtn, searchInput, labelSearch, citylist, cityListInput, backSearchBtn;
 
 document.addEventListener('DOMContentLoaded', () => {
 
@@ -23,11 +23,12 @@ document.addEventListener('DOMContentLoaded', () => {
     searchInput = document.querySelector('.search'),
     labelSearch = document.querySelector('.label-search'),
     citylist = document.querySelector('#citylistOptions'),
-    cityListInput = document.querySelector('#cityListInput');
+    cityListInput = document.querySelector('#cityListInput'),
+    backSearchBtn = document.querySelector('.back-to-search-btn');
 
   // get data from table  
-  // google.script.run.withSuccessHandler(setData).getAllData("ВІННИЦЯ");
-  // google.script.run.withSuccessHandler(setCities).getCityes();
+  google.script.run.withSuccessHandler(setData).getAllData("ВІННИЦЯ");
+  google.script.run.withSuccessHandler(setCities).getCityes();
 
   cityListInput.value = "ВІННИЦЯ";
 
@@ -69,9 +70,6 @@ document.addEventListener('DOMContentLoaded', () => {
       render() {
         const option = document.createElement('option');
         option.setAttribute('value', this.city)
-        // option.innerHTML = `
-        //   <option value=${this.city}>
-        //   `;
         citylist.append(option);
       }
     }
@@ -148,26 +146,23 @@ document.addEventListener('DOMContentLoaded', () => {
     obj.contactInfo = contactInfoFild.value;
     obj.moreInfo = addInfoFild.value;
 
-    // google.script.run.withSuccessHandler(showModal).updateData(id, obj);
+    google.script.run.withSuccessHandler(showModal).updateData(id, obj);
   });
 
   addBtn.addEventListener("click", () => {
     const newClinic = [legalNameFild.value, nameFild.value, cityFild.value, regionFild.value, adressFild.value, areaFild.value, typeFild.value, catFild.value, costFild.value, contactInfoFild.value, addInfoFild.value];
-    // google.script.run.withSuccessHandler(showModal).addNewRod(newClinic);
+    google.script.run.withSuccessHandler(showModal).addNewRod(newClinic);
   });
 
   deleteBtn.addEventListener("click", () => {
-    // google.script.run.withSuccessHandler(showModal).deleteRow(id);
+    google.script.run.withSuccessHandler(showModal).deleteRow(id);
   });
 
 
   function showModal(msg) {
     alert(msg);
-    citylist.value = ""
-    cityListInput.value = "";
     clearFilds();
-    // google.script.run.withSuccessHandler(setData).getAllData("ВІННИЦЯ"); 
-    cityListInput.value = "ВІННИЦЯ";
+    google.script.run.withSuccessHandler(setData).getAllData(cityListInput.value);
   }
 
   labelSearch.addEventListener("click", () => {
@@ -180,6 +175,15 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
+  backSearchBtn.addEventListener("click", () => {
+    console.log('clik');
+    document.querySelector('.info').classList.remove('active');
+    document.querySelector('.info').classList.add('hide');
+    document.querySelector('.main').classList.toggle('hideMain');
+
+  });
+
+
 });
 
 function setData(arr) {
@@ -188,9 +192,6 @@ function setData(arr) {
   $('.table tbody').remove();
   const tbody = document.createElement('tbody');
   $('.table').append(tbody);
-
-  // const table = document.querySelector('table'),
-  //   tbody = table.querySelector('tbody');
 
   class createRows {
     constructor(name, city, region, adr, area, type, category, info, index, id) {
@@ -245,10 +246,14 @@ function setData(arr) {
 
   // click on the row
   $('.results tr').click(function (e) {
+    document.body.scrollTop = document.documentElement.scrollTop = 0;
+
     let index = $(e.target.parentNode).attr('data-index');
     id = +$(e.target.parentNode).attr('data-id') + 2;
 
-    console.log(id);
+    document.querySelector('.info').classList.add('active');
+    document.querySelector('.info').classList.remove('hide');
+    document.querySelector('.main').classList.toggle('hideMain');
 
     legalNameFild.value = data[index][0];
     nameFild.value = data[index][1];
@@ -273,7 +278,7 @@ function changeListOptions() {
 
   clearFilds();
 
-  // google.script.run.withSuccessHandler(setData).getAllData(cityListInput.value);
+  google.script.run.withSuccessHandler(setData).getAllData(cityListInput.value);
 }
 
 function sortTable(n) {
@@ -350,6 +355,9 @@ function clearFilds() {
   contactInfoFild.value = "";
   addInfoFild.value = "";
   searchInput.value = "";
-  //  cityListInput = "";
+}
+
+function showCard() {
+
 }
 

@@ -1,10 +1,22 @@
+@keyframes slidein {
+  from {
+    left: -300%;
+  }
+
+  to {
+    left: 0;
+  }
+}
+
+
 .container {
+  position: relative;
   margin-top: 50px;
 }
 
 .my-custom-scrollbar {
   position: relative;
-  height: 270px;
+  height: 470px;
   overflow: auto;
 }
 
@@ -30,7 +42,26 @@
 
 .info {
   margin-top: 15px;
+  visibility: hidden;
   .btn {
     margin-top: 5px;
   }
+}
+
+.active {
+  position: absolute;
+  visibility: visible;
+  top: 10px;
+  left: 0;
+  animation: 0.5s linear slidein;
+}
+
+.hide {
+  visibility: hidden;
+  top: 0;
+  left: -300%;
+}
+
+.hideMain {
+  visibility: hidden;
 }
